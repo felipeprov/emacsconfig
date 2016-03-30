@@ -2,7 +2,58 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-(setq package-list '(ac-c-headers auto-complete popup ac-etags auto-complete popup airline-themes powerline auto-complete popup c-eldoc cmake-ide levenshtein seq company-auctex auctex company yasnippet company-c-headers company company-irony irony company company-irony-c-headers irony company ctags ctags-update dash-at-point dash-functional dash flx-ido flx ggtags helm-c-moccur color-moccur helm helm-core async popup async helm-c-yasnippet yasnippet helm helm-core async popup async helm-dash helm helm-core async popup async helm-gtags helm helm-core async popup async helm-projectile dash projectile pkg-info epl dash helm helm-core async popup async irony levenshtein magit-gitflow magit-popup dash async magit magit-popup dash async git-commit with-editor dash async dash with-editor dash async dash async markdown-mode org-dashboard org-jira orgit org magit magit-popup dash async git-commit with-editor dash async dash with-editor dash async dash async dash popup powerline project-root projectile pkg-info epl dash seq sr-speedbar use-package diminish bind-key with-editor dash async yasnippet))
+;;i must install all packages i like
+(setq package-list '(
+                     ac-c-headers
+                     ac-etags
+                     airline-themes
+                     async
+                     auctex
+                     auto-complete
+                     bind-key
+                     c-eldoc
+                     cmake-ide
+                     color-moccur
+                     company
+                     company-auctex
+                     company-c-headers
+                     ctags
+                     ctags-update
+                     dash
+                     dash-at-point
+                     dash-functional
+                     diminish
+                     epl
+                     epl
+                     flx
+                     flx-ido
+                     ggtags
+                     git-commit
+                     git-commit
+                     helm
+                     helm-c-moccur
+                     helm-c-yasnippet
+                     helm-core
+                     helm-dash
+                     helm-gtags
+                     helm-projectile
+                     levenshtein
+                     magit
+                     magit-gitflow
+                     magit-popup
+                     markdown-mode
+                     org
+                     org-dashboard
+                     pkg-info
+                     popup
+                     powerline
+                     project-root
+                     projectile
+                     seq
+                     sr-speedbar
+                     use-package
+                     with-editor
+                     yasnippet ))
 
 ; fetch the list of packages available 
 (unless package-archive-contents
