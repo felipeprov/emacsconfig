@@ -1,3 +1,5 @@
+
+
 (require 'package)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
@@ -181,7 +183,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("fbcdb6b7890d0ec1708fa21ab08eb0cc16a8b7611bb6517b722eba3891dfc9dd" "51277c9add74612c7624a276e1ee3c7d89b2f38b1609eed6759965f9d4254369" "2a5be663818e1e23fd2175cc8dac8a2015dcde6b2e07536712451b14658bbf68" "8e7ca85479dab486e15e0119f2948ba7ffcaa0ef161b3facb8103fb06f93b428" "532769a638787d1196bc22c885e9b85269c3fc650fdecfc45135bb618127034c" "6998bd3671091820a6930b52aab30b776faea41449b4246fdce14079b3e7d125" "133222702a3c75d16ea9c50743f66b987a7209fb8b964f2c0938a816a83379a0" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
+    ("0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "fbcdb6b7890d0ec1708fa21ab08eb0cc16a8b7611bb6517b722eba3891dfc9dd" "51277c9add74612c7624a276e1ee3c7d89b2f38b1609eed6759965f9d4254369" "2a5be663818e1e23fd2175cc8dac8a2015dcde6b2e07536712451b14658bbf68" "8e7ca85479dab486e15e0119f2948ba7ffcaa0ef161b3facb8103fb06f93b428" "532769a638787d1196bc22c885e9b85269c3fc650fdecfc45135bb618127034c" "6998bd3671091820a6930b52aab30b776faea41449b4246fdce14079b3e7d125" "133222702a3c75d16ea9c50743f66b987a7209fb8b964f2c0938a816a83379a0" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
  '(inhibit-startup-screen t)
  '(org-agenda-files (quote ("c:/Users/Felipe/Dropbox/vida/")))
  '(show-paren-mode t))
@@ -822,3 +824,43 @@
     (org-sec-with-view "TODO dowith" who)
     (org-sec-assigned-with-view "TASK with" who)
     (org-sec-stuck-with-view "STUCK with" who)))
+
+
+(require 'ox-latex)
+
+(add-to-list 'org-latex-classes
+             '("mxtdoc"
+               "\\documentclass[a4paper, 12pt]{template/mxtdoc}
+\\usepackage{glossaries}
+\\usepackage{smartdiagram}
+\\usepackage{enumitem}
+\\usepackage{tikz}
+\\usetikzlibrary{shapes.geometric, arrows}
+\\makeglossaries
+[NO-DEFAULT-PACKAGES]
+[NO-PACKAGES]
+"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+(setq org-latex-pdf-process 
+  '("xelatex -interaction nonstopmode %f"
+     "xelatex -interaction nonstopmode %f"))
+
+
+(prefer-coding-system 'utf-8)
+(set-language-environment "UTF-8")
+(setq coding-system-for-write 'utf-8)
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-indent-mode t))
+          t)
+
+(add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+(setq ispell-program-name "aspell")
+(require 'ispell)
