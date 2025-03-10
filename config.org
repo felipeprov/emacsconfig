@@ -3,9 +3,13 @@
 
 * Emacs configuration using orgmode
 
+Heavely inspired by the videos form 'System from scratch'.
+The main idea here is to keep the configuration organized in a org file and convert it a lisp file using *Org Babel*.
+
 
 ** Basic ui configuration
 
+Let's remove some of the default emacs clutter interface. We just need a simple window to start to work.
 
 #+begin_src emacs-lisp
 
@@ -25,6 +29,9 @@
 #+end_src
 
 ** Package manager configuration
+
+Using *use-package* is a great way to simplify the package downloading and configuration.
+
 
 #+begin_src emacs-lisp
 
@@ -49,6 +56,9 @@
 #+end_src
 
 ** Icons and themes loading 
+
+After a few years using *Doom Emacs* i just few at home with the *doom-one* theme. Also, here if make a few setups to improve the global theme features, as specific options to neotree and org mode.
+
 #+begin_src emacs-lisp
   (use-package all-the-icons
     :if (display-graphic-p))
@@ -91,6 +101,8 @@
 
 ** Better completion and help context
 
+Also, after a few years using *Doom emacs*, this packages just feel right: which-key, help to learn ne commands, counsel and ivy, better auto completions and helpful help to avoid to open the documentation everywhere.
+
 #+begin_src emacs-lisp
   (use-package which-key
     :init (which-key-mode)
@@ -123,6 +135,8 @@
 
 
 ** Evil Mode
+
+I love emacs but we can agree that Vim motions are just superior ? Evil mode feel just the right compromise.
 
 #+begin_src emacs-lisp
     (defun rune/evil-hook ()
@@ -169,6 +183,11 @@
 #+end_src
 
 ** Project management, git and Neotree
+
+Projectile is great when working with code. often we must to trigger commands from the root folder, or have a find in project wide scope.
+
+Also, normally i just use git from the command line, but i am giving a chance to magit. Still not yet convinced.
+
 #+begin_src emacs-lisp
   (use-package projectile
       :diminish projectile-mode
@@ -196,6 +215,9 @@
 #+end_src
 
 ** Org mode and Roam
+
+Org Mode and roam are the reason i use Emacs. It their equivalent in neovim or as a standalone program existed with the same features I would have changed a few years ago.
+
 
 #+begin_src emacs-lisp
   (defun dw/org-mode-setup ()
@@ -307,7 +329,7 @@
     :ensure t
     :after org
     :hook (org-mode . (lambda () evil-org-mode))
-    :config
+q    :config
     (require 'evil-org-agenda)
     (evil-org-agenda-set-keys))
 
@@ -329,6 +351,8 @@
 
 *** Babel setup
 
+Babel analyses this file and convert it to continuous elisp file.
+
 #+begin_src emacs-lisp
 
   (org-babel-do-load-languages
@@ -342,6 +366,8 @@
 
 
 ** LSP and symbols loading
+
+Emacs do not come with a LSP integrated environment. LSP allow emacs to interface with *lsp providers*, the same of VSCode to suggest language based auto completions, syntax tips and deep integration.
 
 #+begin_src emacs-lisp
     ;; LSP
@@ -385,6 +411,8 @@
 #+end_src
 
 ** Languages
+
+I am learning zig in my spare time, so I make sense to integrate with my own tools.
 
 #+begin_src emacs-lisp
 (use-package zig-mode
@@ -438,6 +466,8 @@ I must to check it to understand properly ^^.
 #+end_src
 
 ** RPG and stuff
+
+Some random stuff, trying to test it, but it is not working yet.
 
 #+begin_src emacs-lisp
   ;; (use-package rpgtk
