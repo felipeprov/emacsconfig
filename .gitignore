@@ -5,3 +5,4 @@ server/
 transient/
 bookmarks
 org-roam.db
+.lsp-session
